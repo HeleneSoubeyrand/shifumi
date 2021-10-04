@@ -1,59 +1,48 @@
-// 
- // var Paper = 1
- // var Scissors = 2
- // var Stone = 3
-   
-// Button click
-function onButtonClick(num) {
 
-     // Paper 
-    // On cible notre element
-    var imgPaper = document.getElementsByClassName("IA-Sign");
-    // On renseigne l'attribut src
-    imgPaper.setAttribute("src", "image/Paper-sign.png")     
+// Paper = 1
+// Scissors = 2
+// Stone = 3
 
-     // Scissors
-    // On cible notre element
-    var imgScissors = document.createElement("imgScissors");
-    // On renseigne l'attribut src
-    imgScissors.setAttribute("src", "image/Scissors-sign.png") 
+var btnPaper = document.getElementById("btnPaper");
+btnPaper.getAttribute ("src", "image/Paper-sign.png")
 
-    // Stone
-    // On cible notre element
-    var imgStone = document.createElement("imgStone");
-    // On renseigne l'attribut src
-    imgStone.setAttribute("src", "image/Stone-sign.png") 
+var btnScissors = document.getElementById("btnScissors");
+btnScissors.getAttribute ("src", "image/Scissors-sign.png")
+
+var btnStone = document.getElementById("btnStone");
+btnStone.getAttribute ("src", "image/Stone-sign.png")
+
+
+// Action
+
+function onButtonClick() {
+
+    var random = 0 
+    random = Math.floor(Math.random() * (3 - 1 + 1) + 1)
     
- // var Paper = 1
- // var Scissors = 2
- // var Stone = 3
+    var IaSign = document.getElementById("IA-Sign");
 
-    var random = Math.floor(Math.random() * (3 - 1 + 1) + 1)
-        console.log(random)
-
-    if (random === 1 && num === 2) { 
-        console.log(imgPaper)
-        console.log("Vous avez gagné")
-
-    } else if (random === 1 && num === 3) {
-        console.log("L'IA a gagné")
-
-    } else if (random === 2 && num === 3) {
-        console.log("Vous avez gagné")
-
-    } else if (random === 2 && num === 1) {
-        console.log("L'IA a gagné")
-
-    } else if (random === 3 && num === 1) {
-        console.log("Vous avez gagné")
-
-    } else if (random === 3 && num === 2) {
-        console.log("L'IA a gagné")
-
+    if (random === 1) {    
+       console.log(IaSign.getAttribute ("src", "image/Paper-sign.png"))
+    } else if (random === 2) { 
+        console.log(IaSign.getAttribute ("src", "image/Scissors-sign.png"))
     } else {
-            console.log("Egalité")
-    }
-   
+        console.log(IaSign.getAttribute ("src", "image/Stone-sign.png"))
+    }  
+
 }
 
-onButtonClick(1)
+
+// Game
+
+function signChoice(num) {
+
+    if (random === num) {
+        console.log("Egalité")
+    } else if  ((random === 1 && num === 2) || (random === 2 && num === 3) || (random === 3 && num === 1)) { 
+        console.log("Vous avez gagné")
+    } else {
+        console.log("L'IA a gagné")       
+    }   
+
+}

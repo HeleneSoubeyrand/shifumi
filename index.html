@@ -6,16 +6,22 @@
   </head>
 
   <body>
-      <section class="Player1">
-        <h1>Player 1</h1>
-        <img class="IA-Sign"/>
+      <header>
+      <h1>SHI FU MI</h1>
+      <h2>Pierre - Feuille - Ciseaux</h2>
+      </header>
+
+      <section class="realPlayer">
+        <h3>Player 1</h3>
+        <img id="RP-Sign"/>
+        <button id="btnPaper" onClick="onButtonClick(), signChoice(1)">Feuille</button>
+        <button id="btnScissors" onClick="onButtonClick(), signChoice(2)">Ciseaux</button>
+        <button id="btnStone" onClick="onButtonClick(), signChoice(3)">Pierre</button>
       </section>
-      <section class="Player2">
-        <h1>Player 2</h1>
-        <img class="RP-Sign"/>
-        <button id="btnPaper" onClick="onButtonClick(1)" >Feuille</button>
-        <button id="btnScissors" onClick="onButtonClick(2)" >Ciseaux</button>
-        <button id="btnStone" onClick="onButtonClick(3)" >Pierre</button>
+
+      <section class="IAPlayer">
+        <h3>Computer</h3>
+        <img id="IA-Sign"/>
       </section>
 
     <script src="index.js"></script>
