@@ -5,6 +5,25 @@
 
 // Images
 
+    // Paper 
+    // On cible notre element
+    var imgPaper = document.getElementById("imgPaper")
+    // On renseigne l'attribut src
+    imgPaper.setAttribute("src", "image/Paper-sign")      
+
+     // Scissors
+    // On cible notre element
+    var imgScissors = document.getElementById("imgScissors")
+    // On renseigne l'attribut src
+    imgScissors.setAttribute("src", "image/Scissors-sign") 
+
+    // Stone
+    // On cible notre element
+    var imgStone = document.getElementById("imgStone")
+    // On renseigne l'attribut src
+    imgStone.setAttribute("src", "image/Stone-sign") 
+
+
 
 // Button click
 function onButtonClick(num) {
