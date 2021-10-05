@@ -1,48 +1,113 @@
 
-// Paper = 1
-// Scissors = 2
-// Stone = 3
-
-var btnPaper = document.getElementById("btnPaper");
-btnPaper.getAttribute ("src", "image/Paper-sign.png")
-
-var btnScissors = document.getElementById("btnScissors");
-btnScissors.getAttribute ("src", "image/Scissors-sign.png")
-
-var btnStone = document.getElementById("btnStone");
-btnStone.getAttribute ("src", "image/Stone-sign.png")
+// Stone = 1
+// Paper = 2
+// Scissors = 3
 
 
-// Action
+var random = 0 
+var IaSign = document.getElementById("IA-Sign");
+var RPSign = document.getElementById("RP-Sign")
 
-function onButtonClick() {
+var IaScore = 0
+var RpScore = 0
+var party = 0
 
-    var random = 0 
+
+// Random
+
+function onButtonClick(num) {
+
+    rpChoice(num)
+   
     random = Math.floor(Math.random() * (3 - 1 + 1) + 1)
     
-    var IaSign = document.getElementById("IA-Sign");
-
     if (random === 1) {    
-       console.log(IaSign.getAttribute ("src", "image/Paper-sign.png"))
+       IaSign.setAttribute ("src", "image/imgStone.png")
+       console.log("The IA choose Stone")
     } else if (random === 2) { 
-        console.log(IaSign.getAttribute ("src", "image/Scissors-sign.png"))
+        IaSign.setAttribute ("src", "image/imgPaper.png")
+        console.log("The IA choose Paper")
     } else {
-        console.log(IaSign.getAttribute ("src", "image/Stone-sign.png"))
+        IaSign.setAttribute ("src", "image/imgScissors.png")
+        console.log("The IA choose Scissors")
     }  
 
+    game(num)
+
+    endGame()
+   
 }
 
+// Affichage choix
+
+function rpChoice(num) {
+
+    if (num === 1) {
+        RPSign.setAttribute("src", "image/imgStone.png")
+        console.log("You choose Stone")
+
+    } else if (num === 2) {
+        RPSign.setAttribute ("src", "image/imgPaper.png")
+        console.log("You choose Paper")
+       
+    } else {
+        RPSign.setAttribute ("src", "image/imgScissors.png")
+        console.log("You choose Scissors")
+        
+    }
+}
 
 // Game
 
-function signChoice(num) {
+function game(num) {
 
-    if (random === num) {
-        console.log("Egalité")
-    } else if  ((random === 1 && num === 2) || (random === 2 && num === 3) || (random === 3 && num === 1)) { 
-        console.log("Vous avez gagné")
-    } else {
-        console.log("L'IA a gagné")       
-    }   
+    score = document.createElement("h3");
+    var element = document.getElementById("score");
+    element.appendChild(score);
+
+    for (var i = 0; i < 1; i++) {
+        party = party + 1
+        console.log(party)
+
+        if (random === num) {
+            console.log("Nobody win")
+            IaScore = IaScore + 0
+            RpScore = RpScore + 0
+        
+        } else if  ((random === 1 && num === 2) || (random === 2 && num === 3) || (random === 3 && num === 1)) { 
+            console.log("You win !")
+            RpScore = RpScore + 1
+            
+        } else {
+            console.log("You loose !")
+            IaScore = IaScore + 1   
+        }   
+
+    }
+
+    score.innerHTML = `YOU : ${RpScore} / COMPUTER : ${IaScore}`
+    console.log(score)
+}
+
+
+function endGame() {
+
+    var message = document.createElement("h1");
+    var element = document.getElementById("message");
+    element.appendChild(message);
+
+    if (IaScore === 3) {
+        message.innerHTML = "You loose !"
+    
+    } else if (RpScore === 3) {
+        message.innerHTML = "You win !"
+       
+    }  else if (party === 5) {
+        message.innerHTML = "Game off"
+    }
 
 }
+
+ 
+
+    

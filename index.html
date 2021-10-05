@@ -3,26 +3,35 @@
   <head>
     <title>Shifumi</title>
     <meta name="description" content="Shifumi game">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
   </head>
 
   <body>
       <header>
       <h1>SHI FU MI</h1>
-      <h2>Pierre - Feuille - Ciseaux</h2>
+      <button id="btnStone" onClick="onButtonClick(1)" >Pierre</button>
+      <button id="btnPaper" onClick="onButtonClick(2)" >Feuille</button>
+      <button id="btnScissors" onClick="onButtonClick(3)">Ciseaux</button>
       </header>
 
+      <div class="titlegamer">
+      <h3>You</h3>
+      <h3>Computer</h3>
+      </div>
+
+      <div class="gamer">
       <section class="realPlayer">
-        <h3>Player 1</h3>
         <img id="RP-Sign"/>
-        <button id="btnPaper" onClick="onButtonClick(), signChoice(1)">Feuille</button>
-        <button id="btnScissors" onClick="onButtonClick(), signChoice(2)">Ciseaux</button>
-        <button id="btnStone" onClick="onButtonClick(), signChoice(3)">Pierre</button>
       </section>
 
       <section class="IAPlayer">
-        <h3>Computer</h3>
         <img id="IA-Sign"/>
       </section>
+      </div>
+    
+
+     <div id="score"></div>
+     <div id="message"></div>
 
     <script src="index.js"></script>
   </body>
